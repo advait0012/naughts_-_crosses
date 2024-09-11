@@ -1,0 +1,14 @@
+{
+  "name": "noughts-crosses",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe Game",
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.12.0"
+  }
+}
