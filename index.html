@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
     <title>Naughts&Crosses</title>
-    <link rel="shortcut icon" href="./assets/images/tic-tac-toe.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/images/tic-tac-toe.png"
+      type="image/x-icon"
+    />
     <!-- Custom Css -->
-    <link rel="stylesheet" href="./assets/scss/main.scss">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/scss/main.scss" />
+  </head>
+  <body>
     <main>
-        <h1>Noughts & Crosses</h1>
-        <p class="player-status">Player: <span class="current-player">X</span></p>
-        <section class="grid">
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-            <div class="box">O</div>
-        </section> 
-        <button>
-            New Game
-        </button>
+      <h1 class="heading">Noughts & Crosses</h1>
+      <p class="player-status">Player: <span class="current-player">X</span></p>
+      <section class="grid">
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box">X</div>
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box">O</div>
+        <div class="box">O</div>
+      </section>
+      <button>New Game</button>
     </main>
-</body>
+    <script src="./scripts/main.js"></script>
+  </body>
 </html>

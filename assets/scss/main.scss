@@ -1,5 +1,82 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// @use"variable" as v;
+
+@font-face {
+  font-family: customfont;
+  src: url(/fonts/Bruce.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: customfont;
+}
+input,
+button {
+  font-family: customfont;
+}
+main {
+  min-height: 100vh;
+  min-width: 100vw;
+  // background-color: black;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+.heading {
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  position: relative;
+}
+.player-status {
+  font-size: 2rem;
+}
+.heading::before {
+  content: "X";
+  font-weight: 400;
+  position: absolute;
+  color: red;
+  left: -3rem;
+}
+.heading::after {
+  content: "O";
+  position: absolute;
+  font-weight: 400;
+  color: red;
+  right: -3rem;
+}
+
+.grid {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 20rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: 12px 12px 16px #54565e;
+  border-radius: 1rem;
+}
+.box {
+  width: 100%;
+  font-family: "varela round";
+  font-weight: 700;
+  font-size: 3.8rem;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;;
+}
+
+.box:nth-child(2n) {
+  border: 1px solid rgb(219, 219, 219);
+}
+button {
+  padding: 0.5rem 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
 }
