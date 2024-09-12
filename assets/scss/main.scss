@@ -79,4 +79,8 @@ button {
   padding: 0.5rem 3rem;
   border-radius: 1rem;
   cursor: pointer;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
 }
