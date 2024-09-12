@@ -33,8 +33,18 @@ main {
   letter-spacing: 2px;
   position: relative;
 }
-.player-status {
-  font-size: 2rem;
+// p{
+//   border: 1px solid black;
+// }
+.playerstatus {
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  box-shadow: 5px 5px 5px #111;
+}
+.current-player {
+  color: red;
 }
 .heading::before {
   content: "X";
@@ -69,7 +79,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 .box:nth-child(2n) {
@@ -79,7 +89,7 @@ button {
   padding: 0.5rem 3rem;
   border-radius: 1rem;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background-color: black;
     color: white;
   }
