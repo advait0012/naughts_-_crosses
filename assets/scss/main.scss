@@ -1,4 +1,5 @@
 // @use "variable" as v;
+@import "utils";
 
 @font-face {
   font-family: customfont;
@@ -89,6 +90,7 @@ button {
   padding: 0.5rem 3rem;
   border-radius: 1rem;
   cursor: pointer;
+  visibility: hidden;
   &:hover {
     background-color: black;
     color: white;
