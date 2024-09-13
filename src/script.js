@@ -29,7 +29,6 @@ startGame();
 function checkWinner() {
   winning.forEach((chance) => {
     const [c1, c2, c3] = chance;
-
     if (
       gameGrid[c1] !== "" &&
       gameGrid[c2] !== "" &&
@@ -38,12 +37,19 @@ function checkWinner() {
       gameGrid[c2] === gameGrid[c3]
     ) {
       boxesEl.forEach((box) => (box.style.pointerEvents = "none"));
-      resetButton.classList.add["active"];
+      resetButton.classList.add("active");
       boxesEl[c1].classList.add("green");
       boxesEl[c2].classList.add("green");
       boxesEl[c3].classList.add("green");
       headingEl.textContent = `Player ${gameGrid[c1]} Won!`;
       currentPlayer.textContent = `${gameGrid[c1]} Won!`;
+    }
+    const x = gameGrid.every(ev => {
+        return ev !== ""
+    })
+    if(x){
+        headingEl.textContent = "Draw hua hai";
+        resetButton.classList.add("active")
     }
   });
 }
