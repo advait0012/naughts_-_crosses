@@ -37,10 +37,10 @@ const hexColors = "0123456789abcdef";
 let randomColor = "#";
 function randomHex() {
   for (let i = 0; i < 6; i++) {
-    const randomHexColor = hexColors[Math.floor(Math.random()) * hexColors.length];
+    const randomHexColor =
+      hexColors[Math.floor(Math.random()) * hexColors.length];
     randomColor += randomHexColor;
     console.log(randomColor);
-    
   }
   return randomColor;
 }
