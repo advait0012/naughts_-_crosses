@@ -44,12 +44,12 @@ function checkWinner() {
       headingEl.textContent = `Player ${gameGrid[c1]} Won!`;
       currentPlayer.textContent = `${gameGrid[c1]} Won!`;
     }
-    const x = gameGrid.every(ev => {
-        return ev !== ""
-    })
-    if(x && !headingEl.textContent.includes("W")){
-        headingEl.textContent = "Draw hua hai";
-        resetButton.classList.add("active")
+    const x = gameGrid.every((ev) => {
+      return ev !== "";
+    });
+    if (x && !headingEl.textContent.includes("W")) {
+      headingEl.textContent = "Draw hua hai";
+      resetButton.classList.add("active");
     }
   });
 }
