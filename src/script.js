@@ -47,7 +47,7 @@ function checkWinner() {
     const x = gameGrid.every(ev => {
         return ev !== ""
     })
-    if(x){
+    if(x && !headingEl.textContent.includes("W")){
         headingEl.textContent = "Draw hua hai";
         resetButton.classList.add("active")
     }
