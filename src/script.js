@@ -66,7 +66,7 @@ function checkWinner() {
   const x = gameGrid.every((el) => el !== "");
 
   if (x && !headingEl.textContent.includes("W")) {
-    headingEl.textContent = "Draw hua hai";
+    headingEl.textContent = "It's a Tie";
     resetBtnEl.classList.add("active");
   }
 }
