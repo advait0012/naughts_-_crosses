@@ -1,7 +1,7 @@
 {
   "name": "noughts-crosses",
   "version": "1.0.0",
-  "description": "Tic Tac Toe Game",
+  "description": "Noughts & Crosses",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
