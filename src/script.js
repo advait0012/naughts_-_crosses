@@ -1,78 +1,107 @@
 import winning from "./wincases";
+
+// DOM Elements
 const headingEl = document.querySelector(".heading");
-const currentPlayerEl = document.querySelector(".current-player");
+const currPlayerEl = document.querySelector(".current-player");
 const boxesEl = document.querySelectorAll(".box");
-const resetButton = document.querySelector("button");
+const resetBtnEl = document.querySelector("button");
 
-const players = ["X", "O"];
-let currentPlayer;
-let gameGrid;
+// Game Variables
+const players = ["O", "X"];
+let currPlayer;
+let gameGrid; // Virtual Game Grid
 
+// Functions
 function randomPlayer() {
   const newPlayer = Math.floor(Math.random() * 2);
-  currentPlayer = players[newPlayer];
+  currPlayer = players[newPlayer];
 }
 
 function swapPlayer() {
-  const newPlayer = currentPlayer === players[0] ? players[1] : players[0];
-  currentPlayer = newPlayer;
+  const newPlayer = currPlayer === players[0] ? players[1] : players[0];
+  currPlayer = newPlayer;
 }
 
 function startGame() {
+  // gameGrid insert 9 empty strings
   gameGrid = new Array(9).fill("");
-  resetButton.classList.remove("active");
+  // hide reset button
+  resetBtnEl.classList.remove("active");
+  // generate random player
   randomPlayer();
-  currentPlayerEl.textContent = currentPlayer;
+  // show random player in current player
+  currPlayerEl.textContent = currPlayer;
 }
+
 startGame();
 
 function checkWinner() {
   winning.forEach((chance) => {
     const [c1, c2, c3] = chance;
+
     if (
-      gameGrid[c1] !== "" &&
-      gameGrid[c2] !== "" &&
-      gameGrid[c3] !== "" &&
+      gameGrid[c1] &&
+      gameGrid[c2] &&
+      gameGrid[c3] &&
       gameGrid[c1] === gameGrid[c2] &&
       gameGrid[c2] === gameGrid[c3]
     ) {
+      // show the win player in heading & current-player
+      headingEl.textContent = `${gameGrid[c1]} Won!`;
+      currPlayerEl.textContent = `${gameGrid[c1]} Won!`;
+
+      // prevent clicking
       boxesEl.forEach((box) => (box.style.pointerEvents = "none"));
-      resetButton.classList.add("active");
+
+      // show new game button
+      resetBtnEl.classList.add("active");
+
+      // add .green class
       boxesEl[c1].classList.add("green");
       boxesEl[c2].classList.add("green");
       boxesEl[c3].classList.add("green");
-      headingEl.textContent = `Player ${gameGrid[c1]} Won!`;
-      currentPlayer.textContent = `${gameGrid[c1]} Won!`;
-    }
-    const x = gameGrid.every((ev) => {
-      return ev !== "";
-    });
-    if (x && !headingEl.textContent.includes("W")) {
-      headingEl.textContent = "Draw hua hai";
-      resetButton.classList.add("active");
     }
   });
+
+  const x = gameGrid.every((el) => el !== "");
+
+  if (x && !headingEl.textContent.includes("W")) {
+    headingEl.textContent = "Draw hua hai";
+    resetBtnEl.classList.add("active");
+  }
 }
 
 function handleClick(index) {
+  // Only if the current box is empty
   if (gameGrid[index] === "") {
-    boxesEl[index].textContent = currentPlayer;
-    gameGrid[index] = currentPlayer;
+    // Update player in DOM and remove hover hand
+    boxesEl[index].textContent = currPlayer;
     boxesEl[index].style.pointerEvents = "none";
-    currentPlayerEl.textContent = currentPlayer;
-    checkWinner();
+
+    // Update virtual grid
+    gameGrid[index] = currPlayer;
+
+    // Swap player & Update on UI
     swapPlayer();
+    currPlayerEl.textContent = currPlayer;
+
+    // Check player winning status
+    checkWinner();
   }
 }
+
 boxesEl.forEach((box, index) => {
   box.addEventListener("click", () => {
     handleClick(index);
   });
 });
 
-resetButton.addEventListener("click", () => {
+// Reset Button
+resetBtnEl.addEventListener("click", () => {
   startGame();
+
   headingEl.textContent = "Noughts & Crosses";
+
   boxesEl.forEach((box) => {
     box.classList.remove("green");
     box.textContent = "";
